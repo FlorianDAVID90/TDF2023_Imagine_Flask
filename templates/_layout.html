@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Tour de France 2023 imaginé</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" >
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/bootstrap.css') }}" >
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" >
+    {% endblock %}
+</head>
+<body>
+    {% include('nav.html') %}
+    {% with messages = get_flashed_messages() %}
+         <br>
+        {% if messages %}
+            <div class="alert alert-danger">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+    {% endwith %}
+    <div class="container">
+        {% block body %}
+            <h2 style="color:black"><b>auth/layout.html</b></h2>
+            Site d'un Tour de France 2023 imaginé
+        {% endblock %}
+    </div>
+
+
+    {% block javascripts %}
+        <script src="{{ url_for('static', filename='assets/js/jquery-3.5.1.slim.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/js/popper.min.js') }}" ></script>
+        <script src="{{ url_for('static', filename='assets/js/bootstrap.js') }}" ></script>
+    {% endblock %}
+
+</body>
+</html>
